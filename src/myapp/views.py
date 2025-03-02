@@ -14,4 +14,8 @@ def saludar_con_parametros(request, nombre: str, apellido: str):
     return HttpResponse(f"hola {nombre} {apellido} desde Django con parametros!")
 
 def index(request):
-    return render(request, "myapp/index.html")
+    from datetime import datetime
+    time_actual = datetime.now().year
+    contexto = {
+        "time_actual": time_actual}
+    return render(request, "myapp/index.html", contexto)
