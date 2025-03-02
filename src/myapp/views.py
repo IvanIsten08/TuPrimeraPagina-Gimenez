@@ -12,3 +12,6 @@ def saludar_con_parametros(request, nombre: str, apellido: str):
     nombre = nombre.capitalize() # Capitalizo el nombre
     apellido = apellido.capitalize() # Capitalizo el apellido
     return HttpResponse(f"hola {nombre} {apellido} desde Django con parametros!")
+
+def index(request):
+    return render(request, "myapp/index.html")
