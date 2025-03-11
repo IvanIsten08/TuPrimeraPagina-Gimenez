@@ -37,3 +37,11 @@ def tirar_dado(request):
         'fecha': datetime.now().strftime('%H:%M:%S.%f'),
     }
     return render(request, 'myapp/dados.html', context=datos)
+
+def ejercicio_1(request):
+    datos_persona = {
+        'nombre': 'Ivan',
+        'apellido': 'Gimenez',
+        'edad': 28,
+    }
+    return render(request, "myapp/ejercicio1.html", context=datos_persona)
