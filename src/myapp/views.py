@@ -45,3 +45,12 @@ def ejercicio_1(request):
         'edad': 28,
     }
     return render(request, "myapp/ejercicio1.html", context=datos_persona)
+
+def ejercicio_2(request):
+    usuarios = [
+        {'nombre': 'Ivan', 'email': 'ivan@example.com'},
+        {'nombre': 'Pedro', 'email': 'pedro@example.com'},
+        {'nombre': 'Maria', 'email': 'maria@example.com'},
+        {'nombre': 'Luis', 'email': 'luis@example.com'},
+    ]
+    return render(request, "myapp/ejercicio2.html", context={'usuarios': usuarios})

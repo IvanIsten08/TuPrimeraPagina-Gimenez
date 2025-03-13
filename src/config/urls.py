@@ -26,4 +26,5 @@ urlpatterns = [
     path("", views.index),
     path("tirar_dado/", views.tirar_dado),
     path("ejercicio_1/", views.ejercicio_1),
+    path("ejercicio_2/", views.ejercicio_2),
 ]
