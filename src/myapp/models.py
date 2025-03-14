@@ -1,3 +1,8 @@
 from django.db import models
 
-# Create your models here.
+class Cliente(models.Model):
+    nombre = models.CharField(max_length=50) # Todo lo que tenga Field quiere decir que es un tipo de datos, aqui indica que es de tipo Char y que tiene un maximo de 50 caracteres
+    apellido = models.CharField(max_length=50)
+    
+    def __str__(self) -> str:
+        return f"{self.apellido} {self.nombre}"

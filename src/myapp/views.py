@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import Cliente
 # Create your views here.
 
 def saludar(request):
@@ -38,6 +39,7 @@ def tirar_dado(request):
     }
     return render(request, 'myapp/dados.html', context=datos)
 
+
 def ejercicio_1(request):
     datos_persona = {
         'nombre': 'Ivan',
@@ -54,3 +56,8 @@ def ejercicio_2(request):
         {'nombre': 'Luis', 'email': 'luis@example.com'},
     ]
     return render(request, "myapp/ejercicio2.html",{'usuarios': usuarios})
+
+def cliente_list(request):
+    clientes = Cliente.objects.all()  # Obtiene todos los clientes
+    return render(request, 'myapp/cliente_list.html', {'clientes': clientes})
+
