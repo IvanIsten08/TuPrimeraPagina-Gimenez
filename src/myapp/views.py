@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import Cliente
 # Create your views here.
 
 def saludar(request):
@@ -37,3 +38,7 @@ def tirar_dado(request):
         'fecha': datetime.now().strftime('%H:%M:%S.%f'),
     }
     return render(request, 'myapp/dados.html', context=datos)
+
+def cliente_list(request):
+    clientes = Cliente.objects.all()  # Obtiene todos los clientes
+    return render(request, 'myapp/cliente_list.html', {'clientes': clientes})
