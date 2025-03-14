@@ -11,5 +11,10 @@
     {% for usuario in usuarios %}
         {% for clave, valor in usuario.items %}
             <p>{{ clave | title }}: {{ valor }}</p>
+        {% endfor %}
+    {% endfor %}
+    <ul>
+        <li><a href="../tirar_dado/">Ir a Dados</a></li>
+    </ul>
 </body>
-</html>
+    </html>

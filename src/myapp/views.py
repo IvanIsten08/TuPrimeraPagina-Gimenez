@@ -53,4 +53,4 @@ def ejercicio_2(request):
         {'nombre': 'Maria', 'email': 'maria@example.com'},
         {'nombre': 'Luis', 'email': 'luis@example.com'},
     ]
-    return render(request, "myapp/ejercicio2.html", context={'usuarios': usuarios})
+    return render(request, "myapp/ejercicio2.html",{'usuarios': usuarios})
