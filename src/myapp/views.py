@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .models import Cliente
-from .formulario import AutorForm, PostForm, ComentarioForm
+from .models import Cliente, Post
+from .formulario import AutorForm, PostForm, ComentarioForm, BuscarPostForm
 # Create your views here.
 
 def saludar(request):
@@ -99,4 +99,8 @@ def buscar_post(request):
         titulo = form.cleaned_data['titulo']
         posts = Post.objects.filter(titulo__icontains=titulo)
     return render(request, 'myapp/buscar_post.html', {'form': form, 'posts': posts})
+
+def inicio(request):
+    posts = Post.objects.all()
+    return render(request, 'myapp/inicio.html', {'posts': posts})
 
