@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Cliente
+from .formulario import AutorForm, PostForm, ComentarioForm
 # Create your views here.
 
 def saludar(request):
@@ -60,4 +61,34 @@ def ejercicio_2(request):
 def cliente_list(request):
     clientes = Cliente.objects.all()  # Obtiene todos los clientes
     return render(request, 'myapp/cliente_list.html', {'clientes': clientes})
+
+def agregar_autor(request):
+    if request.method == 'POST':
+        form = AutorForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('agregar_autor')
+    else:
+        form = AutorForm()
+    return render(request, 'myapp/agregar_autor.html', {'form': form})
+
+def agregar_post(request):
+    if request.method == 'POST':
+        form = PostForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('agregar_post')
+    else:
+        form = PostForm()
+    return render(request, 'myapp/agregar_post.html', {'form': form})
+
+def agregar_comentario(request):
+    if request.method == 'POST':
+        form = ComentarioForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('agregar_comentario')
+    else:
+        form = ComentarioForm()
+    return render(request, 'myapp/agregar_comentario.html', {'form': form})
 

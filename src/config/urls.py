@@ -28,4 +28,7 @@ urlpatterns = [
     path("ejercicio_1/", views.ejercicio_1),
     path("ejercicio_2/", views.ejercicio_2),
     path("clientes/", views.cliente_list),
+    path("agregar_post/", views.agregar_post),
+    path("agregar_comentario/", views.agregar_comentario),
+    path("agregar_autor/", views.agregar_autor),
 ]
