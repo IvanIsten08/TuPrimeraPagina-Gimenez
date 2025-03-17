@@ -15,3 +15,6 @@ class ComentarioForm(forms.ModelForm):
     class Meta:
         model = Comentario
         fields = ['post', 'nombre', 'contenido', 'fecha']
+        
+class BuscarPostForm(forms.Form):
+    titulo = forms.CharField(max_length=50)

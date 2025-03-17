@@ -31,4 +31,5 @@ urlpatterns = [
     path("agregar_post/", views.agregar_post),
     path("agregar_comentario/", views.agregar_comentario),
     path("agregar_autor/", views.agregar_autor),
+    path("buscar_post/", views.buscar_post, name='buscar_post'),
 ]

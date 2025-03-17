@@ -1,0 +1,20 @@
+{% extends "blog/base.html" %}
+
+{% block title %}Buscar Post{% endblock %}
+
+{% block content %}
+<h2>Buscar Post</h2>
+<form method="GET">
+    {{ form.as_p }}
+    <button type="submit">Buscar</button>
+</form>
+
+{% if posts %}
+    <h3>Resultados:</h3>
+    <ul>
+        {% for post in posts %}
+            <li>{{ post.titulo }} - Publicado por {{ post.autor.nombre }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+{% endblock %}

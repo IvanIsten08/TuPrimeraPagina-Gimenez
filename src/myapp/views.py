@@ -92,3 +92,11 @@ def agregar_comentario(request):
         form = ComentarioForm()
     return render(request, 'myapp/agregar_comentario.html', {'form': form})
 
+def buscar_post(request):
+    form = BuscarPostForm(request.GET)
+    posts = []
+    if form.is_valid():
+        titulo = form.cleaned_data['titulo']
+        posts = Post.objects.filter(titulo__icontains=titulo)
+    return render(request, 'myapp/buscar_post.html', {'form': form, 'posts': posts})
+
