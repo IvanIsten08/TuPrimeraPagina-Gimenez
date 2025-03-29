@@ -3,21 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Mi Blog{% endblock %}</title>
+    <title>La Caja de Pandora</title>
 </head>
 <body>
-    <header>
-        <h1>Mi Blog en Django</h1>
-        <nav>
-            <ul>
-                <li><a href="{% url 'agregar_autor' %}">Agregar Autor</a></li>
-                <li><a href="{% url 'agregar_post' %}">Agregar Post</a></li>
-                <li><a href="{% url 'agregar_comentario' %}">Agregar Comentario</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        {% block content %}{% endblock %}
-    </main>
+    {% block content %}
+    
+    
+    {% endblock content %}
+    
+    
 </body>
 </html>

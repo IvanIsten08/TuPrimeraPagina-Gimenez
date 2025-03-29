@@ -6,7 +6,8 @@
     <title>La Caja de Pandora</title>
 </head>
 <body>
-    <h1>La Caja de Pandora</h1>
+    <h1>Bienvenido a My App</h1>
+    <p>{{ time_actual }}</p>
     <ul>
         <li>Django es un framework de Python que facilita la creación de aplicaciones web.</li>
         <li>Django tiene una gran comunidad de desarrolladores y una comunidad activa de usuarios.</li>
@@ -16,6 +17,12 @@
         <li><a href="tirar_dado/">Ir a Dados</a></li>
         <li><a href="ejercicio_1/">Ir a Ejercicio 1</a></li>
     </ol>
+
+    <a href="{% url 'myapp:categoria_list' %}">Categoria de Productos</a>
+    <br>
+    <a href="{% url 'myapp:categoria_create' %}">Formulario de Productos</a>
+    <br>
+    
     <footer>Hecho en Coder año {{time_actual}}</footer>
 </body>
 </html>

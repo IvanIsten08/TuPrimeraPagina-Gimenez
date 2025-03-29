@@ -32,3 +32,9 @@ class Comentario(models.Model):
     
     def __str__(self) -> str:
         return f"Comentario de {self.nombre} en {self.post.titulo}"
+    
+class Categoria(models.Model):
+    nombre = models.CharField(max_length=100, unique=True)
+    
+    def __str__(self) -> str:
+        return self.nombre

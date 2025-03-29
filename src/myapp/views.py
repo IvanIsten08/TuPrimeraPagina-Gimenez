@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .models import Cliente, Post
+from .models import Cliente, Post, Categoria
 from .formulario import AutorForm, PostForm, ComentarioForm, BuscarPostForm
+from . import formulario
 # Create your views here.
 
 def saludar(request):
@@ -17,7 +18,7 @@ def saludar_con_parametros(request, nombre: str, apellido: str):
 
 def index(request):
     from datetime import datetime
-    time_actual = datetime.now().year
+    time_actual = datetime.now()
     contexto = {
         "time_actual": time_actual}
     return render(request, "myapp/index.html", contexto)
@@ -104,3 +105,18 @@ def inicio(request):
     posts = Post.objects.all()
     return render(request, 'myapp/inicio.html', {'posts': posts})
 
+def categoria_list(request):
+    categorias = Categoria.objects.all()
+    context = {
+        'categorias': categorias}
+    return render(request, 'myapp/categoria_list.html', context)
+
+def categoria_create(request):
+    if request.method == 'GET':
+        form = formulario.CategoriaForm()
+    if request.method == 'POST':
+        form = formulario.CategoriaForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('myapp:categoria_list')
+    return render(request, 'myapp/categoria_form.html', {'form': form})

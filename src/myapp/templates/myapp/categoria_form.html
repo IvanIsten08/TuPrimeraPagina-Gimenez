@@ -1,0 +1,15 @@
+{% extends 'myapp/base.html' %}
+
+{% block content %}
+    <h1>My App : Categorias - formulario</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit">Enviar</button>
+    </form>
+
+    <p>Buenas tardes, por favor ingrese los datos solicitados</p>
+    <a href="{% url 'myapp:index' %}">Volver al inicio</a>
+
+{% endblock content%}

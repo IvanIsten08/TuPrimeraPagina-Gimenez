@@ -1,5 +1,5 @@
 from django import forms
-from .models import Autor, Post, Comentario
+from .models import Autor, Post, Comentario, Categoria
 
 class AutorForm(forms.ModelForm):
     class Meta:
@@ -18,3 +18,8 @@ class ComentarioForm(forms.ModelForm):
         
 class BuscarPostForm(forms.Form):
     titulo = forms.CharField(max_length=50)
+    
+class CategoriaForm(forms.ModelForm):
+    class Meta:
+        model = Categoria
+        fields = "__all__"

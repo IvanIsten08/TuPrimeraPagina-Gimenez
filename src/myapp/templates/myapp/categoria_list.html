@@ -1,0 +1,10 @@
+{% extends 'myapp/base.html' %}
+
+{% block content %}
+    <h1>MyApp: Categorias</h1>
+    <ul>
+        {% for categoria in categorias %}
+            <li>{{categoria.nombre}}</li>
+        {% endfor %}
+    </ul>
+{% endblock content %}
